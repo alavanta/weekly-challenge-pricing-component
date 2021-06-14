@@ -1,0 +1,215 @@
+/* Instructions */
+/* When clicked, the selected card should enlarge (up to you how much) and the price should have a color of #ffd60a*/
+/* The non-selected cards should reduce in opacity */
+/* Stretch goal: add a toggle to display monthly and annual prices */
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body,p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Asap', sans-serif;
+    font-size: 16px;
+}
+
+.nav-header {
+    display: flex;
+}
+
+.nav-header > p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h1,
+.tagline {
+    text-align: center;   
+}
+
+.tagline {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    
+}
+
+.card-container {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+}
+
+.package {
+    margin: -4rem 0.5rem 0 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgb(9 30 66 / 25%);
+    padding: 0.8rem 1rem;
+    background:#fff;
+    transition: ease-in transform 200ms;
+    cursor: pointer;
+}
+
+.package:hover {
+    filter: opacity(0.8);
+}
+
+.package > .price {
+    font-size: 2rem;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.package > .price > p {
+    align-self: center;
+    font-weight: bold;
+}
+
+.package > .title {
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.package > .price > p:nth-child(2) {
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-bottom: -0.5rem;
+}
+
+.benefit > .benefit-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.benefit > .benefit-item > img {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+.benefit > .benefit-item > p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.button-signup {
+    margin: 3rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.button-signup > button {
+    width: 80%;
+    background: #3CD278;
+    border-radius: 20px;
+    border: 0px;
+    color: #fff;
+    padding: 0.7rem 0.5rem;
+    box-shadow: 1px 1px 3px #0000006e;
+}
+
+.button-signup > button:hover {
+    filter:opacity(0.7) ;
+    cursor: pointer;
+}
+
+.head-container {
+    background:#F5EEE7;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+}
+
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.pop-up-1 {
+    animation: pop-in ease-in 200ms;
+}
+
+.pop-up-2 {
+    animation: pop-in ease-in 200ms;
+    animation-delay: 190ms;
+}
+
+.pop-up-3 {
+    animation: pop-in ease-in 200ms;
+    animation-delay: 390ms;
+}
+
+.selected-package {
+    transform: scale(1.1);
+    border: 1px solid #ffd60a ;
+    box-shadow: 0 1px 2px 0 #ffd60a ;
+    opacity: 1 !important;
+    pointer-events: none;
+}
+
+.selected-package > .price > p {
+    color:#ffd60a ;
+}
+
+.nonselected-package {
+    opacity: 0.6;
+}
+
+.periode-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.periode-toggle > button {
+    background: #fff;
+    border: 0;
+    padding: 0.3rem 0.5rem;
+    box-shadow: 0 1px 2px 0 rgb(9 30 66 / 25%);
+    cursor: pointer;
+}
+
+.periode-toggle > button:hover {
+ filter: opacity(0.8);
+}
+
+.periode-toggle-active {
+    background:#3CD278 !important;
+    color: #fff;
+    pointer-events: none;
+}
+
+.periode-toggle > button:nth-child(1){
+    border-radius: 20px 0 0 20px;
+}
+
+.periode-toggle > button:nth-child(2){
+    border-radius: 0 20px 20px 0;
+}
+
+@media (max-width: 600px) {
+    .card-container {
+      flex-direction: column;
+    }
+
+    .package {
+        margin: 1rem 0.5rem 0 0.5rem;
+        width: 50%;
+        align-self: center;
+    }
+
+    .package:nth-child(1){
+        margin: -4rem 0.5rem 0 0.5rem;
+    }
+  }
